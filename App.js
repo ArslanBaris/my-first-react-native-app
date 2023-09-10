@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { StyleSheet, Text, View, SafeAreaView, Image, TouchableWithoutFeedback, TouchableHighlight, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, Image, TouchableWithoutFeedback, TouchableHighlight, TouchableOpacity, ScrollView } from 'react-native';
 
 export default function App() {
   const [visible,setVisible] = useState(true);
@@ -14,6 +14,7 @@ export default function App() {
         <Text style={styles.logo}>./arslan</Text>
         <Image source={require("./assets/menu.png")} style={styles.menu} />
       </View>
+      <ScrollView   maximumZoomScale={6} minimumZoomScale={0.3} >
       <View style={styles.content}>
         <Text style={styles.button}>
           <Text onPress={() => { console.log("Clicked !!") }} style={{ flex: 1, alignItems: "center", }}> Click Me</Text>
@@ -60,22 +61,27 @@ export default function App() {
           <Text style={{ color: "black" }}>Test Message</Text>
         </View>
       </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "red",
+    backgroundColor: "green",
     flex: 1
   },
   secondContainer: {
+    marginBottom:40,
+    minHeight:200,
     backgroundColor: "grey",
     flex: 1,
     alignItems: "center",
     justifyContent: "center"
   },
   thirdContainer: {
+    marginBottom:40,
+    minHeight:200,
     backgroundColor: "yellow",
     flex: 1,
     alignItems: "center",
@@ -116,6 +122,8 @@ const styles = StyleSheet.create({
 
   },
   content: {
+    minHeight:200,
+    marginBottom:40,
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
